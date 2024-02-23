@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/tarm/serial"
 )
@@ -63,12 +64,13 @@ func SetCharCoding(m *serial.Port) {
 func WriteSMS(m *serial.Port, msg string, nr string) ([]byte, error) {
 	SetRecipient(m, nr)
 	b, err := WriteMsg(m, msg)
+
 	return b, err
 }
 
 // Set SMS recipient
 func SetRecipient(m *serial.Port, nr string) {
-	number := fmt.Sprintf("48%s", nr)
+	number := fmt.Sprintf("%s%s", os.Getenv("AREA_CODE"), nr)
 	init := fmt.Sprintf("AT+CMGS=%q", number)
 	m.Write([]byte(init))
 	m.Write([]byte("\n\r"))
@@ -79,7 +81,7 @@ func SetRecipient(m *serial.Port, nr string) {
 
 // Write SMS
 func WriteMsg(m *serial.Port, msg string) ([]byte, error) {
-	_, err := m.Write([]byte(fmt.Sprintf("Veryfication code: %s", msg)))
+	_, err := m.Write([]byte(msg))
 	if err != nil {
 		log.Fatal(err)
 	}

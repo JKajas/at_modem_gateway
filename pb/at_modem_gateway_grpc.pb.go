@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: at_modem_gateway.proto
 
-package sms_gateway
+package at_modem_gateway_proto
 
 import (
 	context "context"

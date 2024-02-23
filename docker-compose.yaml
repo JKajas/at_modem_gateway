@@ -1,0 +1,12 @@
+version: "1.0"
+services:
+  at_gateway:
+    image: at_gateway
+    environment:
+      - AREA_CODE="48"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: "./gtw_exec"
+    ports:
+      - 8011:8000

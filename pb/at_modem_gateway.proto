@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/JKajas/sms_gateway";
+option go_package = "github.com/JKajas/at_modem_gateway_proto";
 
 service SmsGateway { rpc SendSms(GtwRequest) returns (GtwResponse); }
 
