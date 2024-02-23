@@ -1,0 +1,11 @@
+syntax = "proto3";
+option go_package = "github.com/JKajas/sms_gateway";
+
+service SmsGateway { rpc SendSms(GtwRequest) returns (GtwResponse); }
+
+message GtwRequest {
+  string message = 1;
+  string phone_number = 2;
+}
+
+message GtwResponse { int32 status_code = 1; }
