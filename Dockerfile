@@ -1,4 +1,4 @@
-FROM golang:1.19
+FROM golang:1.22
 WORKDIR /gtw
 COPY go.mod go.sum /gtw/
 RUN go mod download

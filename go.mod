@@ -1,6 +1,6 @@
-module github.com/JKajas/at_modem_gateway
+module at_modem_gateway
 
-go 1.18
+go 1.22
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect

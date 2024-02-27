@@ -5,7 +5,8 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/JKajas/at_modem_gateway/pb"
+	pb "at_modem_gateway/pb"
+
 	"github.com/tarm/serial"
 	"google.golang.org/grpc"
 )
